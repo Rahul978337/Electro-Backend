@@ -44,9 +44,14 @@ module.exports.sinupuser=async(req,res)=>{
             }
         }
     }catch(error){
-        console.log(error);
-        
-    }
+    console.error(error);
+
+    return res.status(500).json({
+        success: false,
+        message: "Internal Server Error",
+        error: error.message
+    });
+}
 }
 
 
