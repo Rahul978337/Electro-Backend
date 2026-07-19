@@ -8,6 +8,8 @@ const productModel=require("../models/ProductModel");
 
 
 module.exports.addCategory=async(req,res)=>{
+    console.log("REQ.FILE =", req.file);
+    console.log("REQ.BODY =", req.body);
     try{
         const{name,description,}=req.body;
         const finduser=await category.findOne({name})
