@@ -6,6 +6,9 @@ const { errors } = require('celebrate');
 
 
 require('dotenv').config()
+
+console.log("MONGO_URL exists:", !!process.env.MONGO_URL);
+console.log("MONGO_URL starts with:", process.env.MONGO_URL?.substring(0, 20));
 const app=express()
 app.use("/uploads",express.static("uploads"))
 app.use(express.json())
