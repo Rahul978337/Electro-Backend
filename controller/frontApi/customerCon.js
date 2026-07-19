@@ -107,16 +107,16 @@ module.exports.loginuser = async (req, res) => {
     //             html: `<p>Dear ${finduser.first_name} ${finduser.last_name},</p><p>Thank you for logging in with us! Your account has been successfully accessed.</p><p>Best regards,<br>electro.com Team</p>`
     //         });
 
-try {
-  await sendMail({
-    email: finduser.email,
-    subject: "User Login",
-    message: "...",
-    html: "..."
-  });
-} catch (err) {
-  console.log("Mail Error:", err.message);
-}
+// try {
+//   await sendMail({
+//     email: finduser.email,
+//     subject: "User Login",
+//     message: "...",
+//     html: "..."
+//   });
+// } catch (err) {
+//   console.log("Mail Error:", err.message);
+// }
     
 
 
