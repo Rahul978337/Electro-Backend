@@ -37,12 +37,16 @@ module.exports.registerUser=async(req,res)=>{
             const adduser=await user.create(userData)
             await adduser.save()
 
-            await sendMail({
-                email: adduser.email,
-                subject: "User Registration",
-                message: `Dear ${adduser.first_name} ${adduser.last_name},\n\nThank you for registering with us! Your account has been successfully created.\n\nBest regards,\nelectro.com Team`,
-                html: `<p>Dear ${adduser.first_name} ${adduser.last_name},</p><p>Thank you for registering with us! Your account has been successfully created.</p><p>Best regards,<br>electro.com Team</p>`
-            });
+            try {
+    await sendMail({
+        email: adduser.email,
+        subject: "User Registration",
+        message: `Dear ${adduser.first_name}`,
+        html: `<p>Dear ${adduser.first_name}</p>`
+    });
+} catch (err) {
+    console.log("Mail Error:", err.message);
+}
 
 
             if(adduser){
@@ -55,9 +59,14 @@ module.exports.registerUser=async(req,res)=>{
             }
         }
     }catch(error){
-        console.log(error);
-        
-    }
+    console.log(error);
+
+    return res.json({
+        status: 500,
+        success: false,
+        message: error.message
+    });
+}
 }
 
 
