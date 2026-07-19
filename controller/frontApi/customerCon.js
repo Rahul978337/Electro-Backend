@@ -86,9 +86,10 @@ module.exports.loginuser = async (req, res) => {
       });
     }
     const token = jsonwebtoken.sign(
-      { email:email,password:password },process.env.jwt_SECRET, 
-      { expiresIn: "12h" }
-    )
+  { email: email, password: password },
+  process.env.JWT_SECRET,
+  { expiresIn: "12h" }
+);
 
     await sendMail({
                 email: finduser.email,
