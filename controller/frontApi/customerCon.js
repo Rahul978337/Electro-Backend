@@ -91,12 +91,12 @@ module.exports.loginuser = async (req, res) => {
   { expiresIn: "12h" }
 );
 
-    await sendMail({
-                email: finduser.email,
-                subject: "User Login",
-                message: `Dear ${finduser.first_name} ${finduser.last_name},\n\nThank you for logging in with us! Your account has been successfully accessed.\n\nBest regards,\nelectro.com Team`,
-                html: `<p>Dear ${finduser.first_name} ${finduser.last_name},</p><p>Thank you for logging in with us! Your account has been successfully accessed.</p><p>Best regards,<br>electro.com Team</p>`
-            });
+    // await sendMail({
+    //             email: finduser.email,
+    //             subject: "User Login",
+    //             message: `Dear ${finduser.first_name} ${finduser.last_name},\n\nThank you for logging in with us! Your account has been successfully accessed.\n\nBest regards,\nelectro.com Team`,
+    //             html: `<p>Dear ${finduser.first_name} ${finduser.last_name},</p><p>Thank you for logging in with us! Your account has been successfully accessed.</p><p>Best regards,<br>electro.com Team</p>`
+    //         });
 
 
     
