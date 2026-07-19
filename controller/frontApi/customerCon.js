@@ -37,16 +37,16 @@ module.exports.registerUser=async(req,res)=>{
             const adduser=await user.create(userData)
             await adduser.save()
 
-            try {
-    await sendMail({
-        email: adduser.email,
-        subject: "User Registration",
-        message: `Dear ${adduser.first_name}`,
-        html: `<p>Dear ${adduser.first_name}</p>`
-    });
-} catch (err) {
-    console.log("Mail Error:", err.message);
-}
+//             try {
+//     await sendMail({
+//         email: adduser.email,
+//         subject: "User Registration",
+//         message: `Dear ${adduser.first_name}`,
+//         html: `<p>Dear ${adduser.first_name}</p>`
+//     });
+// } catch (err) {
+//     console.log("Mail Error:", err.message);
+// }
 
 
             if(adduser){
